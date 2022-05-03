@@ -1,0 +1,1461 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/19/2022 1:51:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JOHNNY3AE4"
+  DTS:CreatorName="JOHNNY3AE4\johnny"
+  DTS:DTSID="{F18D0C23-30CD-48B9-B308-95F4A0A5A8F7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{0D3BF903-EE52-480D-8301-C9D700871F43}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ladowanie tabelicy wymiaru DimZawodnik"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3B83099F-0BFB-4B1D-B52A-0B2C78538F94}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ladowanie tabelicy wymiaru DimZawodnik"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimZawodnik]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[IdZawodnikaT]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnikaT"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdZawodnikaT]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[IdZawodnikaT]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[Imie]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Imie"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Imie]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Imie]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[Nazwisko]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Nazwisko"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwisko]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Nazwisko]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[NumerKoszulki]"
+                      cachedDataType="i4"
+                      cachedName="NumerKoszulki"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumerKoszulki]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[NumerKoszulki]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[Waga]"
+                      cachedDataType="i4"
+                      cachedName="Waga"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Waga]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Waga]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[Wzrost]"
+                      cachedDataType="i4"
+                      cachedName="Wzrost"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wzrost]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wzrost]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[Pozycja]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Pozycja"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pozycja]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Pozycja]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[DataUtworzenia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataUtworzenia"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataUtworzenia]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataUtworzenia]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[DataModyfikacji]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataModyfikacji"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataModyfikacji]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataModyfikacji]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[Narodowosc]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Narodowosc"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Narodowosc]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Narodowosc]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].Columns[Wiek]"
+                      cachedDataType="i4"
+                      cachedName="Wiek"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wiek]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wiek]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdZawodnika]"
+                      dataType="i4"
+                      name="IdZawodnika" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdZawodnikaT]"
+                      dataType="i4"
+                      name="IdZawodnikaT" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Imie]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Imie" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwisko]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Nazwisko" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumerKoszulki]"
+                      dataType="i4"
+                      name="NumerKoszulki" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Waga]"
+                      dataType="i4"
+                      name="Waga" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wzrost]"
+                      dataType="i4"
+                      name="Wzrost" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pozycja]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Pozycja" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      name="DataUtworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="DataModyfikacji" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Narodowosc]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Narodowosc" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wiek]"
+                      dataType="i4"
+                      name="Wiek" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimZawodnik] SET [DataModyfikacji] = ?,[DataUtworzenia] = ?,[Imie] = ?,[Narodowosc] = ?,[Nazwisko] = ?,[NumerKoszulki] = ?,[Pozycja] = ?,[Waga] = ?,[Wiek] = ?,[Wzrost] = ? WHERE [IdZawodnikaT] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[DataModyfikacji]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataModyfikacji"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataModyfikacji]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[DataUtworzenia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataUtworzenia"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataUtworzenia]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[IdZawodnikaT]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnikaT"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[IdZawodnikaT]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[Imie]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Imie"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Imie]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[Narodowosc]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Narodowosc"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Narodowosc]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nazwisko]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Nazwisko"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Nazwisko]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[NumerKoszulki]"
+                      cachedDataType="i4"
+                      cachedName="NumerKoszulki"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[NumerKoszulki]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[Pozycja]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Pozycja"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Pozycja]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[Waga]"
+                      cachedDataType="i4"
+                      cachedName="Waga"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Waga]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[Wiek]"
+                      cachedDataType="i4"
+                      cachedName="Wiek"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wiek]" />
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].Columns[Wzrost]"
+                      cachedDataType="i4"
+                      cachedName="Wzrost"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wzrost]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="i4"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="i4"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [DataModyfikacji], [DataUtworzenia], [IdZawodnikaT], [Imie], [Narodowosc], [Nazwisko], [NumerKoszulki], [Pozycja], [Waga], [Wiek], [Wzrost] FROM [dbo].[DimZawodnik]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DataModyfikacji]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataModyfikacji"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DataModyfikacji]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataModyfikacji]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DataUtworzenia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataUtworzenia"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DataUtworzenia]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataUtworzenia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[IdZawodnikaT]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnikaT"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdZawodnikaT]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[IdZawodnikaT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Imie]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Imie"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Imie]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Imie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Narodowosc]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Narodowosc"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Narodowosc]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Narodowosc]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Nazwisko]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Nazwisko"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nazwisko]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Nazwisko]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NumerKoszulki]"
+                      cachedDataType="i4"
+                      cachedName="NumerKoszulki"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NumerKoszulki]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[NumerKoszulki]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Pozycja]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Pozycja"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Pozycja]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Pozycja]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Waga]"
+                      cachedDataType="i4"
+                      cachedName="Waga"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Waga]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Waga]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Wiek]"
+                      cachedDataType="i4"
+                      cachedName="Wiek"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Wiek]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wiek]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Wzrost]"
+                      cachedDataType="i4"
+                      cachedName="Wzrost"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Wzrost]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wzrost]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="DataModyfikacji" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      name="DataUtworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdZawodnikaT]"
+                      dataType="i4"
+                      name="IdZawodnikaT" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Imie]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Imie" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Narodowosc]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Narodowosc" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nazwisko]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Nazwisko" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NumerKoszulki]"
+                      dataType="i4"
+                      name="NumerKoszulki" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Pozycja]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Pozycja" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Waga]"
+                      dataType="i4"
+                      name="Waga" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Wiek]"
+                      dataType="i4"
+                      name="Wiek" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Wzrost]"
+                      dataType="i4"
+                      name="Wzrost" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Tabela DimZawdonikSt"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimZawodnikSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Connections[OleDbConnection]"
+                  connectionManagerID="{28B5D95D-90C0-49F8-A55B-32F4A7D94590}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_ODS.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[IdZawodnikaT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[IdZawodnikaT]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[IdZawodnikaT]"
+                      name="IdZawodnikaT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Imie]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Imie]"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Imie]"
+                      name="Imie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Nazwisko]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Nazwisko]"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Nazwisko]"
+                      name="Nazwisko"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[NumerKoszulki]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[NumerKoszulki]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[NumerKoszulki]"
+                      name="NumerKoszulki"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Waga]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Waga]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Waga]"
+                      name="Waga"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wzrost]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Wzrost]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wzrost]"
+                      name="Wzrost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Pozycja]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Pozycja]"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Pozycja]"
+                      name="Pozycja"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[DataUtworzenia]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataUtworzenia]"
+                      name="DataUtworzenia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[DataModyfikacji]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataModyfikacji]"
+                      name="DataModyfikacji"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Narodowosc]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Narodowosc]"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Narodowosc]"
+                      name="Narodowosc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wiek]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Wiek]"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wiek]"
+                      name="Wiek"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[IdZawodnikaT]"
+                      dataType="i4"
+                      name="IdZawodnikaT" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Imie]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Imie" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Nazwisko]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Nazwisko" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[NumerKoszulki]"
+                      dataType="i4"
+                      name="NumerKoszulki" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Waga]"
+                      dataType="i4"
+                      name="Waga" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Wzrost]"
+                      dataType="i4"
+                      name="Wzrost" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Pozycja]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Pozycja" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      name="DataUtworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="DataModyfikacji" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Narodowosc]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Narodowosc" />
+                    <externalMetadataColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output].ExternalColumns[Wiek]"
+                      dataType="i4"
+                      name="Wiek" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[IdZawodnikaT]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[IdZawodnikaT]"
+                      name="IdZawodnikaT" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Imie]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Imie]"
+                      name="Imie" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Nazwisko]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Nazwisko]"
+                      name="Nazwisko" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[NumerKoszulki]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[NumerKoszulki]"
+                      name="NumerKoszulki" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Waga]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Waga]"
+                      name="Waga" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Wzrost]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Wzrost]"
+                      name="Wzrost" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Pozycja]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Pozycja]"
+                      name="Pozycja" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[DataUtworzenia]"
+                      name="DataUtworzenia" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[DataModyfikacji]"
+                      name="DataModyfikacji" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Narodowosc]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Narodowosc]"
+                      name="Narodowosc" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Wiek]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[Wiek]"
+                      name="Wiek" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ladowanie tabelicy wymiaru DimZawodnik.Paths[Changing Attribute Updates Output]"
+              endId="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\ladowanie tabelicy wymiaru DimZawodnik.Paths[New Output]"
+              endId="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\ladowanie tabelicy wymiaru DimZawodnik.Paths[OLE DB Source Output]"
+              endId="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="273.5,42"
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik"
+          TopLeft="194,77.9999996125698" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ladowanie tabelicy wymiaru DimZawodnik">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="187.5,42"
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt"
+          TopLeft="217,5.5" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension"
+          TopLeft="205.75,107.5" />
+        <EdgeLayout
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik.Paths[OLE DB Source Output]"
+          TopLeft="310.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160.5,42"
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <EdgeLayout
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik.Paths[New Output]"
+          TopLeft="277.083333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.333333333333,60"
+              Start="0,0"
+              End="-191.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2722117202268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2722117202268"
+                    Point2="0,24.2722117202268"
+                    Point3="-4,24.2722117202268" />
+                  <mssgle:LineSegment
+                    End="-187.333333333333,24.2722117202268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.333333333333,24.2722117202268"
+                    Point2="-191.333333333333,24.2722117202268"
+                    Point3="-191.333333333333,28.2722117202268" />
+                  <mssgle:LineSegment
+                    End="-191.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.758053385417,29.2722117202268,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168.5,42"
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik\OLE DB Command"
+          TopLeft="226.5,209.5" />
+        <EdgeLayout
+          Id="Package\ladowanie tabelicy wymiaru DimZawodnik.Paths[Changing Attribute Updates Output]"
+          TopLeft="344.416666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.6666666666667,60"
+              Start="0,0"
+              End="-33.6666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2722117202268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2722117202268"
+                    Point2="0,24.2722117202268"
+                    Point3="-4,24.2722117202268" />
+                  <mssgle:LineSegment
+                    End="-29.6666666666667,24.2722117202268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.6666666666667,24.2722117202268"
+                    Point2="-33.6666666666667,24.2722117202268"
+                    Point3="-33.6666666666667,28.2722117202268" />
+                  <mssgle:LineSegment
+                    End="-33.6666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.3672395833334,29.2722117202268,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ladowanie tabelicy wymiaru DimZawodnik\Tabela DimZawdonikSt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ladowanie tabelicy wymiaru DimZawodnik\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{55750E46-B784-41BA-8F27-EAD61E33FACA}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimZawodnik]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataModyfikacji]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DataModyfikacji&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[DataUtworzenia]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DataUtworzenia&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[IdZawodnikaT]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdZawodnikaT&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Imie]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Imie&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Narodowosc]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Narodowosc&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Nazwisko]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nazwisko&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[NumerKoszulki]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NumerKoszulki&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Pozycja]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Pozycja&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Waga]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Waga&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wiek]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Wiek&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Tabela DimZawdonikSt.Outputs[OLE DB Source Output].Columns[Wzrost]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Wzrost&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ladowanie tabelicy wymiaru DimZawodnik\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

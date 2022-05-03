@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="194.29.170.4.ABD_GR04_DW.ABDGR04"
+  DTS:DTSID="{55750E46-B784-41BA-8F27-EAD61E33FACA}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=194.29.170.4;User ID=ABDGR04;Initial Catalog=ABD_GR04_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAALm/0e0hFSE+vjbo5nkz53AAAAAACAAAAAAAQZgAAAAEAACAAAAAxblJq5YCXbtZgcyeNx4btyjPH4cB8/vx0jvBgMdtjgAAAAAAOgAAAAAIAACAAAABre5YLyAlIH0EZF3dkWtvlpxA1lJLtNuk57f8lYNpxFIAAAACMUWIEJPI9pjopl0poC5+RZCgVoViaVsuvZQYsrztPNpbn/gQ2kYG4cU7XkeCu4gVNZczJKKFqaz4STPSk2LK2FrR2lvQJZiS1N48r8c+8BBvMyhrEUL8Lxbj91fTnh0rPz7ga8+j8/tyiPoRiY4cS+SdtKvm6+eAWy5J1ouN+XEAAAAARYGceu5b9/naWLzlsBedX7nj6eJEsc/SohyM+oZHhLxlCRp+E31zt7JGz6IYlQ19nIx5ar6W1zx/nlRviBIST</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

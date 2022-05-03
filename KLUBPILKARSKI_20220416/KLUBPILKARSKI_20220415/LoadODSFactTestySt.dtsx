@@ -1,0 +1,609 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/16/2022 9:33:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FP4VNF4"
+  DTS:CreatorName="DESKTOP-FP4VNF4\barto"
+  DTS:DTSID="{7696D3FB-65A8-40C6-869F-FD4E9685F166}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="LoadODSDimFactTestySt"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{46F7578B-85D9-40D8-8971-123A1FAEEE54}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Czyszczenie tabeli FactTestySt"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1a383fb6-3018-4571-a611-75fb906826a3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Czyszczenie tabeli FactTestySt"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{28B5D95D-90C0-49F8-A55B-32F4A7D94590}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE FactTestySt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{26E163C0-2D3E-405E-9767-1FD5ABDF734E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Tabela FactTestySt"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabela FactTestySt"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactTestySt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Tabela FactTestySt.Connections[OleDbConnection]"
+                  connectionManagerID="{28B5D95D-90C0-49F8-A55B-32F4A7D94590}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_ODS.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].Columns[IdWyniku]"
+                      cachedDataType="i4"
+                      cachedName="IdWyniku"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdWyniku]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdWyniku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].Columns[DataWykonania]"
+                      cachedDataType="dbDate"
+                      cachedName="DataWykonania"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[DataWykonania]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[DataWykonania]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].Columns[Ocena]"
+                      cachedDataType="i4"
+                      cachedName="Ocena"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[Ocena]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[Ocena]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].Columns[Opis]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="Opis"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[Opis]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[Opis]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].Columns[IdTestu]"
+                      cachedDataType="i4"
+                      cachedName="IdTestu"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdTestu]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdTestu]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].Columns[IdZawodnika]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnika"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdZawodnika]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdZawodnika]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].Columns[IdPodmiotu]"
+                      cachedDataType="i4"
+                      cachedName="IdPodmiotu"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdPodmiotu]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdPodmiotu]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdWyniku]"
+                      dataType="i4"
+                      name="IdWyniku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[DataWykonania]"
+                      dataType="dbDate"
+                      name="DataWykonania" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[Ocena]"
+                      dataType="i4"
+                      name="Ocena" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      length="400"
+                      name="Opis" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdTestu]"
+                      dataType="i4"
+                      name="IdTestu" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdZawodnika]"
+                      dataType="i4"
+                      name="IdZawodnika" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input].ExternalColumns[IdPodmiotu]"
+                      dataType="i4"
+                      name="IdPodmiotu" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Tabela FactTestySt.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela FactTestySt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela FactTestySt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela FactTestySt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Tabela WynikiTestow"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Tabela WynikiTestow"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--FactTestySt
+USE [ABD_GR04_SRC2]
+SELECT [IdWyniku]
+      ,[DataWykonania]
+      ,[Ocena]
+      ,w.[Opis]
+      ,t.[IdTestu]
+      ,[IdZawodnika]
+	  ,[IdPodmiotu]
+FROM WynikiTestow w inner join Testy t on t.IdTestu = w.IdTestu
+	where w.[DataModyfikacji] &gt;= dateadd(day,-1,cast(CURRENT_TIMESTAMP as date))</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Tabela WynikiTestow.Connections[OleDbConnection]"
+                  connectionManagerID="{AA481DB9-3831-4260-8E44-911446E4CE8D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_SRC2.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdWyniku]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdWyniku]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdWyniku]"
+                      name="IdWyniku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[DataWykonania]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[DataWykonania]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[DataWykonania]"
+                      name="DataWykonania"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[Ocena]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[Ocena]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[Ocena]"
+                      name="Ocena"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[Opis]"
+                      length="400"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[Opis]"
+                      name="Opis"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdTestu]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdTestu]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdTestu]"
+                      name="IdTestu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdZawodnika]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdZawodnika]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdZawodnika]"
+                      name="IdZawodnika"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdPodmiotu]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdPodmiotu]"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].Columns[IdPodmiotu]"
+                      name="IdPodmiotu"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdWyniku]"
+                      dataType="i4"
+                      name="IdWyniku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[DataWykonania]"
+                      dataType="dbDate"
+                      name="DataWykonania" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[Ocena]"
+                      dataType="i4"
+                      name="Ocena" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      length="400"
+                      name="Opis" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdTestu]"
+                      dataType="i4"
+                      name="IdTestu" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdZawodnika]"
+                      dataType="i4"
+                      name="IdZawodnika" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output].ExternalColumns[IdPodmiotu]"
+                      dataType="i4"
+                      name="IdPodmiotu" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdWyniku]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdWyniku]"
+                      name="IdWyniku" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[DataWykonania]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[DataWykonania]"
+                      name="DataWykonania" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[Ocena]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[Ocena]"
+                      name="Ocena" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      length="400"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[Opis]"
+                      name="Opis" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdTestu]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdTestu]"
+                      name="IdTestu" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdZawodnika]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdZawodnika]"
+                      name="IdZawodnika" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdPodmiotu]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[IdPodmiotu]"
+                      name="IdPodmiotu" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Tabela FactTestySt.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Tabela WynikiTestow.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8BEF6A40-1C66-4660-B835-EADA17C0CBEB}"
+      DTS:From="Package\Czyszczenie tabeli FactTestySt"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Czyszczenie tabeli FactTestySt"
+          TopLeft="194,74" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="220,204" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="310,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5,88"
+              Start="0,0"
+              End="-12.5,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40"
+                    Point2="0,44"
+                    Point3="-4,44" />
+                  <mssgle:LineSegment
+                    End="-8.5,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,44"
+                    Point2="-12.5,44"
+                    Point3="-12.5,48" />
+                  <mssgle:LineSegment
+                    End="-12.5,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Data Flow Task\Tabela WynikiTestow"
+          TopLeft="309,103" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Data Flow Task\Tabela FactTestySt"
+          TopLeft="282,234" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="401,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32,89"
+              Start="0,0"
+              End="-32,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.5"
+                    Point2="0,44.5"
+                    Point3="-4,44.5" />
+                  <mssgle:LineSegment
+                    End="-28,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28,44.5"
+                    Point2="-32,44.5"
+                    Point3="-32,48.5" />
+                  <mssgle:LineSegment
+                    End="-32,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Tabela FactTestySt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Tabela WynikiTestow">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

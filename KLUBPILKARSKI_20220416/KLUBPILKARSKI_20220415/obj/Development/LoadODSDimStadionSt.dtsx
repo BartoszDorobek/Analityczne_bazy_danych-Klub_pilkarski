@@ -1,0 +1,638 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/16/2022 7:34:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FP4VNF4"
+  DTS:CreatorName="DESKTOP-FP4VNF4\barto"
+  DTS:DTSID="{3DEFD4E1-3127-4788-9473-2E4F076CFA09}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B8D6DD4C-663C-45E3-B34C-A21DEB09A1A3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Czyszczenie tabeli DimStadionSt"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e590f116-2743-412f-a349-148eb9d68795}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Czyszczenie tabeli DimStadionSt"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{28B5D95D-90C0-49F8-A55B-32F4A7D94590}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DimStadionSt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ładowanie tabeli DimStadionSt"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2E64AA12-D573-4853-B8F8-B068D7BE77E9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ładowanie tabeli DimStadionSt"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabela DimStadionSt"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimStadionSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Connections[OleDbConnection]"
+                  connectionManagerID="{28B5D95D-90C0-49F8-A55B-32F4A7D94590}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_ODS.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].Columns[Nazwa]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Nazwa"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa]"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Nazwa]" />
+                    <inputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].Columns[Miasto]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Miasto"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[Miasto]"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Miasto]" />
+                    <inputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].Columns[Ulica]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Ulica"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[Ulica]"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Ulica]" />
+                    <inputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].Columns[NrLokalu]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="NrLokalu"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[NrLokalu]"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[NrLokalu]" />
+                    <inputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].Columns[KodPocztowy]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="KodPocztowy"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[KodPocztowy]"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[KodPocztowy]" />
+                    <inputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].Columns[IdStadiony]"
+                      cachedDataType="i4"
+                      cachedName="IdStadiony"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[IdStadionu]"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[IdStadiony]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[IdStadionu]"
+                      dataType="i4"
+                      name="IdStadionu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Nazwa" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[Miasto]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Miasto" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[Ulica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Ulica" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[NrLokalu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="NrLokalu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[KodPocztowy]"
+                      codePage="1250"
+                      dataType="str"
+                      length="6"
+                      name="KodPocztowy" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      name="DataUtworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input].ExternalColumns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="DataModyfikacji" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Tabela Stadiony i Adresy"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/*
+DimStadionSt; dbo.Stadiony dbo.Adresy
+*/
+SELECT [IdStadiony]
+      ,[Nazwa]
+      ,[Miasto]
+      ,[Ulica]
+      ,[NrLokalu]
+      ,[KodPocztowy]
+from Stadiony s inner join Adresy a on a.IdAdresu = s.IdAdresu
+	where s.[DataModyfikacji] &gt;= dateadd(day,-1,cast(CURRENT_TIMESTAMP as date))
+union 
+SELECT [IdStadiony]
+      ,[Nazwa]
+      ,[Miasto]
+      ,[Ulica]
+      ,[NrLokalu]
+      ,[KodPocztowy]
+from Stadiony s inner join Adresy a on a.IdAdresu = s.IdAdresu
+	where a.[DataModyfikacji] &gt;= dateadd(day,-1,cast(CURRENT_TIMESTAMP as date))</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Connections[OleDbConnection]"
+                  connectionManagerID="{C3D89E97-C6A3-4869-B5F8-404CB1BF68C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_SRC1.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[IdStadiony]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[IdStadiony]"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[IdStadiony]"
+                      name="IdStadiony"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[Nazwa]"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Nazwa]"
+                      name="Nazwa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Miasto]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[Miasto]"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Miasto]"
+                      name="Miasto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Ulica]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[Ulica]"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[Ulica]"
+                      name="Ulica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[NrLokalu]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[NrLokalu]"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[NrLokalu]"
+                      name="NrLokalu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[KodPocztowy]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[KodPocztowy]"
+                      length="6"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].Columns[KodPocztowy]"
+                      name="KodPocztowy"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[IdStadiony]"
+                      dataType="i4"
+                      name="IdStadiony" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Nazwa" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[Miasto]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Miasto" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[Ulica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Ulica" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[NrLokalu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="NrLokalu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output].ExternalColumns[KodPocztowy]"
+                      codePage="1250"
+                      dataType="str"
+                      length="6"
+                      name="KodPocztowy" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[IdStadiony]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[IdStadiony]"
+                      name="IdStadiony" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[Nazwa]"
+                      name="Nazwa" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[Miasto]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[Miasto]"
+                      name="Miasto" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[Ulica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[Ulica]"
+                      name="Ulica" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[NrLokalu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[NrLokalu]"
+                      name="NrLokalu" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[KodPocztowy]"
+                      codePage="1250"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[KodPocztowy]"
+                      name="KodPocztowy" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ładowanie tabeli DimStadionSt.Paths[OLE DB Source Output]"
+              endId="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0E2EC318-FD99-4E53-891F-973A5B11996E}"
+      DTS:From="Package\Czyszczenie tabeli DimStadionSt"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Ładowanie tabeli DimStadionSt" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Ładowanie tabeli DimStadionSt"
+          TopLeft="298,198" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Czyszczenie tabeli DimStadionSt"
+          TopLeft="255,95" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="375,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,61"
+              Start="0,0"
+              End="39,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="35,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,30.5"
+                    Point2="39,30.5"
+                    Point3="39,34.5" />
+                  <mssgle:LineSegment
+                    End="39,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ładowanie tabeli DimStadionSt">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy"
+          TopLeft="382,118" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt"
+          TopLeft="319,301" />
+        <EdgeLayout
+          Id="Package\Ładowanie tabeli DimStadionSt.Paths[OLE DB Source Output]"
+          TopLeft="482.5,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-72,141"
+              Start="0,0"
+              End="-72,133.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,66.5"
+                    Point2="0,70.5"
+                    Point3="-4,70.5" />
+                  <mssgle:LineSegment
+                    End="-68,70.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-68,70.5"
+                    Point2="-72,70.5"
+                    Point3="-72,74.5" />
+                  <mssgle:LineSegment
+                    End="-72,133.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie tabeli DimStadionSt\Tabela Stadiony i Adresy">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie tabeli DimStadionSt\Tabela DimStadionSt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

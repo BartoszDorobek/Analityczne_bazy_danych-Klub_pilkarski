@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32407.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "KLUBPILKARSKI_20220415", "KLUBPILKARSKI_20220415\KLUBPILKARSKI_20220415.dtproj", "{AFA6BED0-860F-4290-8FF8-DE9CB23D4E9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFA6BED0-860F-4290-8FF8-DE9CB23D4E9E}.Development|Default.ActiveCfg = Development
+		{AFA6BED0-860F-4290-8FF8-DE9CB23D4E9E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E880960E-C577-47FD-8E88-41616C1263BA}
+	EndGlobalSection
+EndGlobal

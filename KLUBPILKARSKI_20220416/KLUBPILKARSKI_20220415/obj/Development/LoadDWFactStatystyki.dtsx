@@ -1,0 +1,2243 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/19/2022 4:52:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FP4VNF4"
+  DTS:CreatorName="DESKTOP-FP4VNF4\barto"
+  DTS:DTSID="{95FB95B7-DC03-48FB-8E86-34AC2ADAF116}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{863E1C25-C3FF-4EF3-878E-C40F4D3CF73F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ładowanie Tabeli FactStatystyki"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{425D2CE8-5F42-48D4-AE77-26BCAE4DD233}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ładowanie Tabeli FactStatystyki"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimCzas"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCzas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCzas]) [refTable]
+where [refTable].[Data] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdCzasu" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Data" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Miesiac" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Kwartal" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Rok" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DzienTygodnia" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DzienMiesiaca" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NazwaDniaTygodniaPol" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="NazwaMiesiacaPol" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="NazwaTygodniaAng" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="NazwaMiesiacaAng" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="DataUtworzenia" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DataModyfikacji" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataMeczu]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Inputs[Lookup Input].Columns[DataMeczu]"
+                      cachedDataType="dbDate"
+                      cachedName="DataMeczu"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataMeczu]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Data</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Match Output].Columns[IdCzasuDW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Match Output].Columns[IdCzasuDW]"
+                      name="IdCzasuDW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">IdCzasu</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimMecz"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimMecz]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimMecz]) [refTable]
+where [refTable].[IdMeczuT] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdMeczu" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdMeczuT" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Przeciwnik" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="DataUtworzenia" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DataModyfikacji" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdMeczu]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Inputs[Lookup Input].Columns[IdMeczu]"
+                      cachedDataType="i4"
+                      cachedName="IdMeczu"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdMeczu]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">IdMeczuT</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Match Output].Columns[IdMeczuDW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Match Output].Columns[IdMeczuDW]"
+                      name="IdMeczuDW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">IdMeczu</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimStadion"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimStadion]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimStadion]) [refTable]
+where [refTable].[IdStadionuT] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdStadionu" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdStadionuT" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nazwa" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="Miasto" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="Ulica" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="NrLokalu" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="KodPocztowy" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="DataUtworzenia" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DataModyfikacji" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdStadiony]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Inputs[Lookup Input].Columns[IdStadiony]"
+                      cachedDataType="i4"
+                      cachedName="IdStadiony"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdStadiony]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">IdStadionuT</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Match Output].Columns[IdStadionuDW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Match Output].Columns[IdStadionuDW]"
+                      name="IdStadionuDW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">IdStadionu</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimZawodnik"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimZawodnik]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimZawodnik]) [refTable]
+where [refTable].[IdZawodnikaT] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdZawodnika" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdZawodnikaT" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Imie" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="Nazwisko" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="NumerKoszulki" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Waga" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Wzrost" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Pozycja" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="DataUtworzenia" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DataModyfikacji" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Narodowosc" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1250"/&gt;&lt;referenceColumn name="Wiek" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdZawodnika]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Inputs[Lookup Input].Columns[IdZawodnika]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnika"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdZawodnika]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">IdZawodnikaT</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Match Output].Columns[IdZawodnikaDW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Match Output].Columns[IdZawodnikaDW]"
+                      name="IdZawodnikaDW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">IdZawodnika</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="FactStatystyki"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [BramkiStracone], [BramkiStrzelone], [CzasGry], [CzyWyjsciowy], [IdCzasu], [IdMeczu], [IdStadionu], [IdZawodnika], [LiczbaCzerwonych], [LiczbaZoltych], [Wynik] FROM [dbo].[FactStatystyki]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Connections[LookupConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[BramkiStracone]"
+                      cachedDataType="i4"
+                      cachedName="BramkiStracone"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[BramkiStracone]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStracone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[BramkiStrzelone]"
+                      cachedDataType="i4"
+                      cachedName="BramkiStrzelone"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[BramkiStrzelone]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStrzelone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[CzasGry]"
+                      cachedDataType="i4"
+                      cachedName="CzasGry"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[CzasGry]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzasGry]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[CzyWyjsciowy]"
+                      cachedDataType="i4"
+                      cachedName="CzyWyjsciowy"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[CzyWyjsciowy]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzyWyjsciowy]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[IdCzasuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdCzasuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdCzasu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Match Output].Columns[IdCzasuDW]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[IdMeczuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdMeczuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdMeczu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Match Output].Columns[IdMeczuDW]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[IdStadionuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdStadionuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdStadionu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Match Output].Columns[IdStadionuDW]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[IdZawodnikaDW]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnikaDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdZawodnika]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Match Output].Columns[IdZawodnikaDW]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[LiczbaCzerwonych]"
+                      cachedDataType="i4"
+                      cachedName="LiczbaCzerwonych"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[LiczbaCzerwonych]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaCzerwonych]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[LiczbaZoltych]"
+                      cachedDataType="i4"
+                      cachedName="LiczbaZoltych"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[LiczbaZoltych]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaZoltych]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].Columns[Wynik]"
+                      cachedDataType="i4"
+                      cachedName="Wynik"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[Wynik]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wynik]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[BramkiStracone]"
+                      dataType="i4"
+                      name="BramkiStracone" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[BramkiStrzelone]"
+                      dataType="i4"
+                      name="BramkiStrzelone" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[CzasGry]"
+                      dataType="i4"
+                      name="CzasGry" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[CzyWyjsciowy]"
+                      dataType="i4"
+                      name="CzyWyjsciowy" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdCzasu]"
+                      dataType="i4"
+                      name="IdCzasu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdMeczu]"
+                      dataType="i4"
+                      name="IdMeczu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdStadionu]"
+                      dataType="i4"
+                      name="IdStadionu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[IdZawodnika]"
+                      dataType="i4"
+                      name="IdZawodnika" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[LiczbaCzerwonych]"
+                      dataType="i4"
+                      name="LiczbaCzerwonych" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[LiczbaZoltych]"
+                      dataType="i4"
+                      name="LiczbaZoltych" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input].ExternalColumns[Wynik]"
+                      dataType="i4"
+                      name="Wynik" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactStatystyki]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[IdStadionuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdStadionuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdStadionu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Match Output].Columns[IdStadionuDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[IdMeczuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdMeczuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdMeczu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Match Output].Columns[IdMeczuDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[IdZawodnikaDW]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnikaDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdZawodnika]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Match Output].Columns[IdZawodnikaDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[IdCzasuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdCzasuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdCzasu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Match Output].Columns[IdCzasuDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[BramkiStrzelone]"
+                      cachedDataType="i4"
+                      cachedName="BramkiStrzelone"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BramkiStrzelone]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStrzelone]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[BramkiStracone]"
+                      cachedDataType="i4"
+                      cachedName="BramkiStracone"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BramkiStracone]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStracone]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[CzasGry]"
+                      cachedDataType="i4"
+                      cachedName="CzasGry"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CzasGry]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzasGry]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[CzyWyjsciowy]"
+                      cachedDataType="i4"
+                      cachedName="CzyWyjsciowy"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CzyWyjsciowy]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzyWyjsciowy]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[LiczbaZoltych]"
+                      cachedDataType="i4"
+                      cachedName="LiczbaZoltych"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LiczbaZoltych]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaZoltych]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[LiczbaCzerwonych]"
+                      cachedDataType="i4"
+                      cachedName="LiczbaCzerwonych"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LiczbaCzerwonych]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaCzerwonych]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].Columns[Wynik]"
+                      cachedDataType="i4"
+                      cachedName="Wynik"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wynik]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wynik]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdStadionu]"
+                      dataType="i4"
+                      name="IdStadionu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdMeczu]"
+                      dataType="i4"
+                      name="IdMeczu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdZawodnika]"
+                      dataType="i4"
+                      name="IdZawodnika" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdCzasu]"
+                      dataType="i4"
+                      name="IdCzasu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BramkiStrzelone]"
+                      dataType="i4"
+                      name="BramkiStrzelone" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[BramkiStracone]"
+                      dataType="i4"
+                      name="BramkiStracone" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CzasGry]"
+                      dataType="i4"
+                      name="CzasGry" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CzyWyjsciowy]"
+                      dataType="i4"
+                      name="CzyWyjsciowy" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LiczbaZoltych]"
+                      dataType="i4"
+                      name="LiczbaZoltych" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LiczbaCzerwonych]"
+                      dataType="i4"
+                      name="LiczbaCzerwonych" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wynik]"
+                      dataType="i4"
+                      name="Wynik" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactStatystyki] SET [BramkiStracone] = ?,[BramkiStrzelone] = ?,[CzasGry] = ?,[CzyWyjsciowy] = ?,[LiczbaCzerwonych] = ?,[LiczbaZoltych] = ?,[Wynik] = ? WHERE [IdCzasu] = ? AND [IdMeczu] = ? AND [IdStadionu] = ? AND [IdZawodnika] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{55750E46-B784-41BA-8F27-EAD61E33FACA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_DW.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[BramkiStracone]"
+                      cachedDataType="i4"
+                      cachedName="BramkiStracone"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStracone]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[BramkiStrzelone]"
+                      cachedDataType="i4"
+                      cachedName="BramkiStrzelone"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStrzelone]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[CzasGry]"
+                      cachedDataType="i4"
+                      cachedName="CzasGry"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzasGry]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[CzyWyjsciowy]"
+                      cachedDataType="i4"
+                      cachedName="CzyWyjsciowy"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzyWyjsciowy]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[IdCzasuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdCzasuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Match Output].Columns[IdCzasuDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[IdMeczuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdMeczuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Match Output].Columns[IdMeczuDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[IdStadionuDW]"
+                      cachedDataType="i4"
+                      cachedName="IdStadionuDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Match Output].Columns[IdStadionuDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[IdZawodnikaDW]"
+                      cachedDataType="i4"
+                      cachedName="IdZawodnikaDW"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Match Output].Columns[IdZawodnikaDW]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[LiczbaCzerwonych]"
+                      cachedDataType="i4"
+                      cachedName="LiczbaCzerwonych"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaCzerwonych]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[LiczbaZoltych]"
+                      cachedDataType="i4"
+                      cachedName="LiczbaZoltych"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaZoltych]" />
+                    <inputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].Columns[Wynik]"
+                      cachedDataType="i4"
+                      cachedName="Wynik"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wynik]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="i4"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="i4"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactStatystykiSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">use ABD_GR04_ODS
+SELECT [IdStadiony]
+      ,[IdMeczu]
+      ,[IdZawodnika]
+	  ,[DataMeczu]
+	  ,SUM(BramkiStracone) As BramkiStracone
+	  ,SUM(BramkiStrzelone) As BramkiStrzelone
+	  ,SUM(CzasGry) As CzasGry
+	  ,COUNT(CASE WHEN [CzyWyjsciowySklad]=1 THEN 1 END) AS CzyWyjsciowy
+	  ,COUNT(CASE WHEN [Kartki]='Zolta' THEN 1 END) AS LiczbaZoltych
+	  ,COUNT(CASE WHEN [Kartki]='Czerwona' THEN 1 END) AS LiczbaCzerwonych
+	  ,SUM(CASE WHEN BramkiStracone &gt; BramkiStrzelone THEN -1 WHEN BramkiStracone=BramkiStrzelone THEN 0 WHEN BramkiStracone&lt;BramkiStrzelone THEN 1 END) AS Wynik
+  FROM [dbo].[FactStatystykiSt]
+group by [IdStadiony]
+      ,[IdZawodnika]
+      ,[IdMeczu]
+	  ,[DataMeczu]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{28B5D95D-90C0-49F8-A55B-32F4A7D94590}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR04_ODS.ABDGR04]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzasGry]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CzasGry]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzasGry]"
+                      name="CzasGry"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdZawodnika]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdZawodnika]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdZawodnika]"
+                      name="IdZawodnika"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdMeczu]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdMeczu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdMeczu]"
+                      name="IdMeczu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStrzelone]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BramkiStrzelone]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStrzelone]"
+                      name="BramkiStrzelone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStracone]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BramkiStracone]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStracone]"
+                      name="BramkiStracone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdStadiony]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdStadiony]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdStadiony]"
+                      name="IdStadiony"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataMeczu]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataMeczu]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataMeczu]"
+                      name="DataMeczu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaZoltych]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LiczbaZoltych]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaZoltych]"
+                      name="LiczbaZoltych"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaCzerwonych]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LiczbaCzerwonych]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaCzerwonych]"
+                      name="LiczbaCzerwonych"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wynik]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Wynik]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[Wynik]"
+                      name="Wynik"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzyWyjsciowy]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CzyWyjsciowy]"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].Columns[CzyWyjsciowy]"
+                      name="CzyWyjsciowy"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CzasGry]"
+                      dataType="i4"
+                      name="CzasGry" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdZawodnika]"
+                      dataType="i4"
+                      name="IdZawodnika" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdMeczu]"
+                      dataType="i4"
+                      name="IdMeczu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BramkiStrzelone]"
+                      dataType="i4"
+                      name="BramkiStrzelone" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BramkiStracone]"
+                      dataType="i4"
+                      name="BramkiStracone" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdStadiony]"
+                      dataType="i4"
+                      name="IdStadiony" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataMeczu]"
+                      dataType="dbDate"
+                      name="DataMeczu" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LiczbaZoltych]"
+                      dataType="i4"
+                      name="LiczbaZoltych" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LiczbaCzerwonych]"
+                      dataType="i4"
+                      name="LiczbaCzerwonych" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Wynik]"
+                      dataType="i4"
+                      name="Wynik" />
+                    <externalMetadataColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CzyWyjsciowy]"
+                      dataType="i4"
+                      name="CzyWyjsciowy" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CzasGry]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CzasGry]"
+                      name="CzasGry" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdZawodnika]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdZawodnika]"
+                      name="IdZawodnika" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdMeczu]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdMeczu]"
+                      name="IdMeczu" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BramkiStrzelone]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BramkiStrzelone]"
+                      name="BramkiStrzelone" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BramkiStracone]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BramkiStracone]"
+                      name="BramkiStracone" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdStadiony]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdStadiony]"
+                      name="IdStadiony" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataMeczu]"
+                      dataType="dbDate"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataMeczu]"
+                      name="DataMeczu" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CzyWyjsciowy]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CzyWyjsciowy]"
+                      name="CzyWyjsciowy" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LiczbaZoltych]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LiczbaZoltych]"
+                      name="LiczbaZoltych" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LiczbaCzerwonych]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LiczbaCzerwonych]"
+                      name="LiczbaCzerwonych" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Wynik]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Wynik]"
+                      name="Wynik" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ładowanie Tabeli FactStatystyki.Paths[Changing Attribute Updates Output]"
+              endId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output]"
+              endId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output1]"
+              endId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Ładowanie Tabeli FactStatystyki\DimStadion.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output2]"
+              endId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Ładowanie Tabeli FactStatystyki\DimMecz.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output3]"
+              endId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Inputs[Slowly Changing Dimension Input]"
+              name="Lookup Match Output"
+              startId="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Ładowanie Tabeli FactStatystyki.Paths[New Output]"
+              endId="Package\Ładowanie Tabeli FactStatystyki\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki.Outputs[New Output]" />
+            <path
+              refId="Package\Ładowanie Tabeli FactStatystyki.Paths[OLE DB Source Output]"
+              endId="Package\Ładowanie Tabeli FactStatystyki\DimCzas.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki"
+          TopLeft="240,211" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ładowanie Tabeli FactStatystyki">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\DimMecz"
+          TopLeft="255.5,311.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source"
+          TopLeft="239.5,5.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\DimCzas"
+          TopLeft="256,107.5" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\DimStadion"
+          TopLeft="250,209.5" />
+        <EdgeLayout
+          Id="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output1]"
+          TopLeft="318,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output]"
+          TopLeft="318,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ładowanie Tabeli FactStatystyki.Paths[OLE DB Source Output]"
+          TopLeft="318,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik"
+          TopLeft="245,413.5" />
+        <EdgeLayout
+          Id="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output2]"
+          TopLeft="318,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki"
+          TopLeft="244,515.5" />
+        <EdgeLayout
+          Id="Package\Ładowanie Tabeli FactStatystyki.Paths[Lookup Match Output3]"
+          TopLeft="318,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\Insert Destination"
+          TopLeft="5.50000000000011,617.5" />
+        <EdgeLayout
+          Id="Package\Ładowanie Tabeli FactStatystyki.Paths[New Output]"
+          TopLeft="294.666666666667,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-206.666666666667,60"
+              Start="0,0"
+              End="-206.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3850267379679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3850267379679"
+                    Point2="0,24.3850267379679"
+                    Point3="-4,24.3850267379679" />
+                  <mssgle:LineSegment
+                    End="-202.666666666667,24.3850267379679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-202.666666666667,24.3850267379679"
+                    Point2="-206.666666666667,24.3850267379679"
+                    Point3="-206.666666666667,28.3850267379679" />
+                  <mssgle:LineSegment
+                    End="-206.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-130.424720052083,29.3850267379679,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Ładowanie Tabeli FactStatystyki\OLE DB Command"
+          TopLeft="231.5,617.5" />
+        <EdgeLayout
+          Id="Package\Ładowanie Tabeli FactStatystyki.Paths[Changing Attribute Updates Output]"
+          TopLeft="341.333333333333,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.3333333333333,60"
+              Start="0,0"
+              End="-23.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3850267379679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3850267379679"
+                    Point2="0,24.3850267379679"
+                    Point3="-4,24.3850267379679" />
+                  <mssgle:LineSegment
+                    End="-19.3333333333333,24.3850267379679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.3333333333333,24.3850267379679"
+                    Point2="-23.3333333333333,24.3850267379679"
+                    Point3="-23.3333333333333,28.3850267379679" />
+                  <mssgle:LineSegment
+                    End="-23.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-90.2005729166667,29.3850267379679,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie Tabeli FactStatystyki\DimMecz">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimMecz]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie Tabeli FactStatystyki\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie Tabeli FactStatystyki\DimCzas">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCzas]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie Tabeli FactStatystyki\DimStadion">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimStadion]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie Tabeli FactStatystyki\DimZawodnik">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimZawodnik]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ładowanie Tabeli FactStatystyki\FactStatystyki">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{55750E46-B784-41BA-8F27-EAD61E33FACA}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[FactStatystyki]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStracone]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BramkiStracone&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[BramkiStrzelone]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;BramkiStrzelone&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[CzasGry]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CzasGry&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[CzyWyjsciowy]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CzyWyjsciowy&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimCzas.Outputs[Lookup Match Output].Columns[IdCzasuDW]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdCzasu&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimMecz.Outputs[Lookup Match Output].Columns[IdMeczuDW]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdMeczu&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimStadion.Outputs[Lookup Match Output].Columns[IdStadionuDW]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdStadionu&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DimZawodnik.Outputs[Lookup Match Output].Columns[IdZawodnikaDW]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IdZawodnika&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaCzerwonych]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LiczbaCzerwonych&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[LiczbaZoltych]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LiczbaZoltych&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Wynik]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Wynik&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
